@@ -2,43 +2,43 @@
 
 **Administrador**
 
-*Correo = admin@admin.com
-*Contraseña = 123456
+* Correo = admin@admin.com
+* Contraseña = 123456
 
 **Paciente**
 
-*Correo = admin@admin.com
-*Contraseña = 123456
+* Correo = admin@admin.com
+* Contraseña = 123456
 
 **Paciente**
 
-*Correo = carlos@paciente.com 
-*Contraseña = 123456
+* Correo = carlos@paciente.com 
+* Contraseña = 123456
 
 **Especialista**
 
-*Correo = veronica@paciente.com
-*Contraseña = 123456
+* Correo = veronica@paciente.com
+* Contraseña = 123456
 
 **Especialista**
 
-*Correo = valentina@especialista.com
-*Contraseña = 123456
+* Correo = valentina@especialista.com
+* Contraseña = 123456
 
 **Especialista**
 
-*Correo = hector@especialista.com
-*Contraseña = 123456
+* Correo = hector@especialista.com
+* Contraseña = 123456
 
 **Recepcionista**
 
-*Correo = recepcionista@recepcionista.com
-*Contraseña = 123456
+* Correo = recepcionista@recepcionista.com
+* Contraseña = 123456
 
 **Recepcionista**
 
-*Correo = analia@recepcionista.com
-*Contraseña = 123456
+* Correo = analia@recepcionista.com
+* Contraseña = 123456
 
 # BuenaSonrisa 
 
