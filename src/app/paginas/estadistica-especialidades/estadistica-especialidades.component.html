@@ -1,0 +1,21 @@
+<div class="arreglarGraficos" *ngIf="pieChartData[0] != 0">
+
+    <div style="justify-content: center;max-width: 100%;">
+        <h1 style="margin-left: 24%;position: relative;" class="display1">Especialidades más usadas y menos usadas</h1>
+        <div>
+          <div class="chart">
+            <canvas baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              [options]="pieChartOptions"
+              [colors]="pieChartColors"
+              [legend]="pieChartLegend">
+            </canvas>
+          </div>
+        </div>
+      </div>
+
+
+    
+</div>

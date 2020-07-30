@@ -1,0 +1,19 @@
+<div class="centrar">
+    <p>
+        <span style="position: relative;margin : 1%" class="display1">Seleccione la estadistica del empleado:</span>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" style="position: relative;margin-top: 3%" >
+            <mat-button-toggle value="ingresoSistema" (click)="mostrarIngresoAlSistema()">Dias y horarios que ingresan al sistema</mat-button-toggle>
+            <mat-button-toggle value="turnosRealizados" (click)="mostrarCantidadTurnos()">Cant. de turnos realizados por especialidad</mat-button-toggle>
+        </mat-button-toggle-group>
+      </p>
+</div>
+
+<div *ngIf="banderaMostrarIngresoSistema">
+    <app-lista-empleados-ingrean-al-sistema>
+    </app-lista-empleados-ingrean-al-sistema>
+</div>
+
+<div *ngIf="banderaMostrarCantidadTurnos">
+    <app-lista-empleados-turnos-realizados>    
+    </app-lista-empleados-turnos-realizados>
+</div>

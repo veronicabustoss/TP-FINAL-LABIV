@@ -1,0 +1,13 @@
+table {
+    width: 96%;
+    margin-left : 2%;
+  }
+  .acomodarCards{
+
+    top : 5%;
+    margin-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-self: auto;
+}

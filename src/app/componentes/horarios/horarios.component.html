@@ -1,0 +1,27 @@
+    <div style='justify-content: space-evenly;     display: flex; flex-wrap: wrap;justify-content: space-evenly;justify-self: auto;'>
+        <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Horarios</mat-label>
+            <mat-select [(value)]="horaCargada" (change)="cargarHorario($event)">
+                    <div *ngIf="this.listaHorarios.length != 0" >
+                        <mat-option *ngFor="let hora of listaHorarios"  [value]="hora">
+                            {{hora}}
+                        </mat-option>
+                    </div>
+                    <div *ngIf="this.listaHorarios.length == 0" >
+                        <mat-option *ngFor="let hora of listaHorariosAux"  [value]="hora">
+                            {{hora}}
+                        </mat-option>
+                    </div>
+        </mat-select>
+    </mat-form-field>
+
+    <div style="padding-top: 2.2%;">
+        <button class="btn btn-success " type="button"  alt="sign in"  (click)="cargarHorario($event)">Confirmar horario</button>  
+    </div>
+</div>
+
+
+
+
+
+

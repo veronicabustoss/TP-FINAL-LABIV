@@ -1,0 +1,161 @@
+<div class="centrar">
+    <p>
+        <span style="position: relative;margin : 1%" class="display1">Seleccione los turnos:</span>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" style="position: relative;margin-top: 3%" >
+            <mat-button-toggle value="ingresoSistema" (click)="canceladosEspecialidad()">Cancelados por especialidad</mat-button-toggle>
+            <mat-button-toggle value="turnosRealizados" (click)="realizadosCliente()">Realizados por clientes</mat-button-toggle>
+            <mat-button-toggle value="turnosRealizados" (click)="realizadosRecepcionista()">Realizados por recepcionista</mat-button-toggle>
+        </mat-button-toggle-group>
+      </p>
+</div>
+
+
+<div *ngIf='mostrarTurnosCanceladosEspecialidad'>
+    <table mat-table [dataSource]="this.listaTurnosCanceladosEspecialidad" class="mat-elevation-z8" >
+
+                          <!-- Weight Column -->
+        <ng-container matColumnDef="Especialidad">
+            <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+            <td mat-cell *matCellDef="let element"> {{element.especialista.especialidad}} </td>
+          </ng-container>
+
+                    
+        <ng-container matColumnDef="Especialista">
+            <th mat-header-cell *matHeaderCellDef> Especialista </th>
+            <td mat-cell *matCellDef="let element"> {{element.especialista.apellido}} </td>
+          </ng-container>
+        
+        <!-- Position Column -->
+        <ng-container matColumnDef="Fecha">
+          <th mat-header-cell *matHeaderCellDef> Fecha </th>
+          <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Horario">
+            <th mat-header-cell *matHeaderCellDef> Horario </th>
+            <td mat-cell *matCellDef="let element"> {{element.horario}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Paciente">
+            <th mat-header-cell *matHeaderCellDef> Paciente </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Turno echo por">
+            <th mat-header-cell *matHeaderCellDef> Turno echo por </th>
+            <td mat-cell *matCellDef="let element"> {{element.realizadoPor.correo}} -- {{element.realizadoPor.perfil}}  </td>
+          </ng-container>
+
+
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div >
+
+
+<div *ngIf='mostrarTurnosRealizadosCliente'>
+    <table mat-table [dataSource]="this.listaTurnosRealizadosCliente" class="mat-elevation-z8" >
+
+                          <!-- Weight Column -->
+        <ng-container matColumnDef="Especialidad">
+            <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+            <td mat-cell *matCellDef="let element"> {{element.especialista.especialidad}} </td>
+          </ng-container>
+
+                    
+        <ng-container matColumnDef="Especialista">
+            <th mat-header-cell *matHeaderCellDef> Especialista </th>
+            <td mat-cell *matCellDef="let element"> {{element.especialista.apellido}} </td>
+          </ng-container>
+        
+        <!-- Position Column -->
+        <ng-container matColumnDef="Fecha">
+          <th mat-header-cell *matHeaderCellDef> Fecha </th>
+          <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Horario">
+            <th mat-header-cell *matHeaderCellDef> Horario </th>
+            <td mat-cell *matCellDef="let element"> {{element.horario}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Paciente">
+            <th mat-header-cell *matHeaderCellDef> Paciente </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Turno echo por">
+            <th mat-header-cell *matHeaderCellDef> Turno echo por </th>
+            <td mat-cell *matCellDef="let element"> {{element.realizadoPor.correo}} -- {{element.realizadoPor.perfil}}  </td>
+          </ng-container>
+
+
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div >
+
+
+
+<div *ngIf='mostrarTurnosRecepcionista'>
+    <table mat-table [dataSource]="this.listaTurnosRecepcionista" class="mat-elevation-z8" >
+
+                          <!-- Weight Column -->
+        <ng-container matColumnDef="Especialidad">
+            <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+            <td mat-cell *matCellDef="let element"> {{element.especialista.especialidad}} </td>
+          </ng-container>
+
+                    
+        <ng-container matColumnDef="Especialista">
+            <th mat-header-cell *matHeaderCellDef> Especialista </th>
+            <td mat-cell *matCellDef="let element"> {{element.especialista.apellido}} </td>
+          </ng-container>
+        
+        <!-- Position Column -->
+        <ng-container matColumnDef="Fecha">
+          <th mat-header-cell *matHeaderCellDef> Fecha </th>
+          <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Horario">
+            <th mat-header-cell *matHeaderCellDef> Horario </th>
+            <td mat-cell *matCellDef="let element"> {{element.horario}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Paciente">
+            <th mat-header-cell *matHeaderCellDef> Paciente </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Turno echo por">
+            <th mat-header-cell *matHeaderCellDef> Turno echo por </th>
+            <td mat-cell *matCellDef="let element"> {{element.realizadoPor.correo}} -- {{element.realizadoPor.perfil}}  </td>
+          </ng-container>
+
+
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div >

@@ -1,0 +1,93 @@
+<div class="container">
+    <div id="login" class="signin-card">
+        <br>
+        <h1 class="display1">Registrar turno</h1>
+
+        <form action="" method="" class="" role="form" [formGroup]="formulario">
+
+            <mat-form-field class="example-full-width" style="margin-top: 1rem;">
+
+                <mat-label>Correo</mat-label>
+                <input matInput formControlName="correoPacienteFormControl"  [(ngModel)]="correoPaciente"
+                placeholder="Ej. Ejemplo@..."  >
+
+
+              </mat-form-field>
+
+                  
+              <div style="margin-top: 1rem;"> 
+                <button class="btn btn-block btn-info " type="button"  alt="sign in" (click)="comprobarCorreo()">Comprobar correo</button>  
+            </div>
+
+            <div *ngIf='banderaFormulario'>
+
+                <mat-form-field class="example-full-width" style="margin-top: 1rem;">
+
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombreFormControl"  [(ngModel)]="nombre"
+                    placeholder="Ej. Juan"  >
+        
+                    <mat-error *ngIf="this.formulario.controls.nombreFormControl.hasError('required')">
+                      El nombre es <strong>requerido</strong>
+                    </mat-error>
+        
+                  </mat-form-field>
+        
+                    <mat-form-field class="example-full-width" style="margin-top: 1rem;">
+        
+                      <mat-label>Apellido</mat-label>
+                      <input matInput formControlName="apellidoFormControl"  [(ngModel)]="apellido"
+                      placeholder="Ej. Samaniego" >
+          
+                      <mat-error *ngIf="this.formulario.controls.apellidoFormControl.hasError('required')">
+                        El apellido es <strong>requerido</strong>
+                      </mat-error>
+                    </mat-form-field>
+        
+                  <mat-form-field class="example-full-width" style="margin-top: 1rem;">
+        
+                    <mat-label>Dni</mat-label>
+                    <input matInput  formControlName="dniFormControl" [(ngModel)]="dni"
+                    placeholder="Ej. 44444444">
+        
+                    <mat-error *ngIf="this.formulario.controls.dniFormControl.hasError('required')">
+                      El dni es <strong>requerido</strong>
+                    </mat-error>
+                  </mat-form-field>
+        
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Elegir fecha</mat-label>
+                    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" [matDatepickerFilter]="filtrarFecha" formControlName="fechaFormControl" [(ngModel)]="fecha">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+        
+                  <div *ngIf="fecha"  >
+                          <mat-form-field appearance="fill" class="example-full-width">
+                            <mat-label>Especialistas</mat-label>
+                            <mat-select [(value)]="especialistaCargado"  formControlName="especialistaFormControl">
+                              <mat-option *ngFor="let especialista of listaEspecialistas"  [value]="especialista">
+                                {{especialista.apellido}}, {{especialista.nombre}} --- {{especialista.especialidad}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field> 
+                  </div>
+                  
+                  <div *ngIf="especialistaCargado">
+                    <app-horarios
+                    [especialista]='especialistaCargado'
+                    [fechaHijo]='fecha'
+                    (traerHorario)='cargarHorario($event)'
+                    ></app-horarios>
+                  </div>
+        
+                      <div style="margin-top: 1rem;" *ngIf="horaCargada != null"> 
+                        <button class="btn btn-block btn-info " type="button"  [disabled]="!formulario.valid" alt="sign in" (click)="pedirTurno()">Registrar</button>  
+                    </div>
+
+            </div>
+
+        </form>  
+        
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.arreglarGraficos{
+
+    max-width: 65%;
+    border-radius: 2px;
+    margin: 2% auto;
+    padding: 20px;   
+}
+
+ .display1 {
+    font-size: 28px;
+    font-weight: 100;
+    line-height: 1.2;
+    color: #757575;
+    text-transform: inherit;
+    letter-spacing: inherit;
+  }

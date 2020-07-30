@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    /*background: url("https://static.miweb.padigital.es/var/m_e/ef/efd/39104/548318-fondo-web.jpg");*/
+    /* background: url("https://static.miweb.padigital.es/var/m_e/ef/efd/39104/548318-fondo-web.jpg"); */
+    /* https://img.freepik.com/foto-gratis/blur-hospital_1203-7957.jpg?size=626&ext=jpg */
+    background: url("https://img.freepik.com/foto-gratis/interior-borroso-hospital-o-clinico-personas-antecedentes-medicos-abstractos_1484-1309.jpg?size=626&ext=jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /*    https://image.freepik.com/foto-gratis/herramientas-dentales-cepillo-dientes-e-hilo-sobre-fondo-azul-concepto-higiene-bucal-limpieza-dientes-banner-publicitario_121946-1349.jpg*/
+
+}
+

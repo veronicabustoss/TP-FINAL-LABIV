@@ -1,0 +1,55 @@
+<div class="container">
+    <div id="login" class="signin-card">
+    
+        <div class="logo-image">
+            <img src="https://clinicadentalcr.com/wp-content/uploads/2019/06/odontologia-png-2.png" alt="Logo" title="Logo" width="138" align="center">
+        </div>
+        <br>
+        <h1 class="display1">Iniciar sesión</h1>
+
+        <form action="" method="" class="" role="form" [formGroup]="formulario">
+          
+          <mat-form-field class="example-full-width" style="margin-top: 1rem;">
+
+            <mat-label>Correo</mat-label>
+            <input matInput  formControlName="emailControl" [errorStateMatcher]="matcher"
+            placeholder="Ex. pat@example.com" 
+            [(ngModel)]="email">
+
+            <mat-error *ngIf="this.formulario.controls.emailControl.hasError('email') && !this.formulario.controls.emailControl.hasError('required')">
+              Por favor ingrese un correo valido
+            </mat-error>
+            <mat-error *ngIf="this.formulario.controls.emailControl.hasError('required')">
+              El correo es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="margin-top: 1rem;">
+                <mat-label>Contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="pass" [(ngModel)]="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+               <mat-error *ngIf="!this.formulario.controls.pass.hasError('required')">
+                    El correo es <strong>requerido</strong>
+                  </mat-error> 
+              </mat-form-field>
+
+        </form>
+                        
+        <!-- <mat-form-field appearance="fill" class="example-full-width" style="margin-top: 1rem;">
+          <mat-label>Especialidad</mat-label>
+          <mat-select [(ngModel)]="pickedName"  (ionChange)="pickerUser(pickedName)" >
+            <mat-option *ngFor="let usuario of listaUsuarios"  [value]="usuario.correo">
+              {{usuario.correo}}
+            </mat-option>
+          </mat-select>
+
+
+        </mat-form-field>  -->
+
+        <div style="margin-top: 1rem;"> 
+          <button class="btn btn-block btn-info " [disabled]="!formulario.valid" type="button"  alt="sign in" (click)="iniciarSesion()" >Iniciar sesión</button>  
+      </div>
+    </div>
+</div>

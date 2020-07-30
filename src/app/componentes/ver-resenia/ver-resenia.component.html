@@ -1,0 +1,31 @@
+<div class="acomodarCards">
+    <mat-card class="example-card" >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title style="margin-top: 4px;" class="display1">Turno</mat-card-title>
+          <mat-card-subtitle>   </mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <br>
+            <br>
+          <p style="color: cornflowerblue;font-size: 22px;">Fecha : <span style="color: rgb(78, 62, 62); font-size: 17px;">{{turno.fecha}}</span></p>
+          <p style="color: cornflowerblue;font-size: 22px;">Horario : <span style="color: rgb(78, 62, 62); font-size: 17px;">{{turno.horario}}</span></p>  
+          <p style="color: cornflowerblue;font-size: 22px;">Nombre : <span style="color: rgb(78, 62, 62); font-size: 17px;">{{turno.nombre}}</span></p>
+          <p style="color: cornflowerblue;font-size: 22px;">Dni : <span style="color: rgb(78, 62, 62); font-size: 17px;">{{turno.dni}}</span></p>
+          <p style="color: cornflowerblue;font-size: 22px;">Especialista : <span style="color: rgb(78, 62, 62); font-size: 17px;">{{turno.especialista.apellido}}</span></p>
+          <br>
+          <br>
+          <mat-card-title style="margin-top: 4px;" class="display1">Reseña:</mat-card-title>
+          <p>{{turno.resenia}}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <!-- <button class="btn btn-block btn-danger " type="button"  alt="sign in" (click)="volverAtrasFuncion($event)">Volver atras</button>   -->
+            <button  mat-raised-button color="warn" style="width: 100%; max-width: 100%;" (click)="volverAtrasFuncion($event)">Volver atras</button>  
+         
+            <!-- <button mat-button (click)="volverAtrasFuncion($event)">Volver atras</button> -->
+        </mat-card-actions>
+     
+    </mat-card>
+</div>

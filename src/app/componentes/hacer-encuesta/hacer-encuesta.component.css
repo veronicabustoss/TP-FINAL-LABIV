@@ -1,0 +1,59 @@
+.example-card {
+    max-width: 400px;
+    background-color: #eceff1; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .19),
+  }
+  
+  .example-header-image {
+    background-image: url('https://cdn.pixabay.com/photo/2017/06/10/06/39/calender-2389150_960_720.png');
+    background-size: cover;
+  }
+p{
+    margin : 1rem;
+}
+
+.acomodarCards{
+
+    top : 5%;
+    margin-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-self: auto;
+}
+
+.display1 {
+    font-size: 28px;
+    font-weight: 100;
+    line-height: 1.2;
+    color: #757575;
+    text-transform: inherit;
+    letter-spacing: inherit;
+  }
+
+  span {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #212121;
+    text-transform: inherit;
+    letter-spacing: inherit;
+  }
+
+  .example-full-width{
+    width: 100%;
+    height: 30%;
+  }
+
+  .matSlider{
+
+    position: relative;
+    margin-top: 45px;
+  }
+
+  .acomodarBotones{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-self: auto;
+  }

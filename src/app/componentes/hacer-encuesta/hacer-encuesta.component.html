@@ -1,0 +1,78 @@
+<div class="acomodarCards">
+    <mat-card class="example-card" >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title style="margin-top: 4px;" class="display1">Turno</mat-card-title>
+          <mat-card-subtitle>   </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <br>
+            <br><br>
+          <p style="color: cornflowerblue;font-size: 22px;margin-top: 8%;">Fecha : <span style="color: rgb(78, 62, 62); font-size: 17px;">{{turno.fecha}}</span></p>
+          <p style="color: cornflowerblue;font-size: 22px;">Horario : <span style="color: rgb(78, 62, 62); font-size: 17px;">{{turno.horario}}</span></p>  
+          <p style="color: cornflowerblue;font-size: 22px;">Nombre : <span style="color: rgb(78, 62, 62); font-size: 17px;">{{turno.nombre}}</span></p>
+          <p style="color: cornflowerblue;font-size: 22px;">Dni : <span style="color: rgb(78, 62, 62); font-size: 17px;">{{turno.dni}}</span></p>
+          <p style="color: cornflowerblue;font-size: 22px;">Especialista : <span style="color: rgb(78, 62, 62); font-size: 17px;">{{turno.especialista.apellido}}</span></p>
+          <br>
+          <br>
+        </mat-card-content>
+      </mat-card>
+    
+      <mat-card class="example-card"  style="width: 300px;" >
+        <mat-card-header>
+          <mat-card-title class="display1" align="center" style="justify-content: center; left: 15%; margin-left: 15%;position: absolute;">Encuesta</mat-card-title>
+        </mat-card-header>
+     <mat-card-content>
+      
+      <form action="" method="" class="" role="form" [formGroup]="formulario">
+
+        <div class="matSlider">
+        <h2 style="color: cornflowerblue;font-size: 22px;">Puntuacion de :</h2>
+          <mat-label style="color: rgb(78, 62, 62); font-size: 17px;">Clinica : {{encuestaClinica}}</mat-label>
+          <!-- <mat-slider color="primary" class="example-full-width" formControlName='clinicaPuntuacionValidar' [(ngModel)]='encuestaClinica'></mat-slider> -->
+          <mat-slider [(ngModel)]='encuestaClinica' formControlName='clinicaPuntuacionValidar' color="primary" class="example-full-width" thumbLabel [displayWith]="formatLabel" tickInterval="10" min="1" max="10"></mat-slider>
+        </div>
+
+        <div class="matSlider">
+          <mat-label style="color: rgb(78, 62, 62); font-size: 17px;">Especialista : {{encuestaEspecialista}}</mat-label>
+          <!-- <mat-slider color="primary" class="example-full-width"  formControlName='especialistaPuntuacionValidar' [(ngModel)]='encuestaEspecialista'></mat-slider> -->
+          <mat-slider [(ngModel)]='encuestaEspecialista' formControlName='especialistaPuntuacionValidar' color="primary" class="example-full-width" thumbLabel [displayWith]="formatLabel" tickInterval="10" min="1" max="10"></mat-slider>
+   
+        </div>  
+
+        <br>
+
+          <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Experiencia de la atencion</mat-label>
+              <textarea class="example-full-width" matInput [(ngModel)]="encuestaPersonal" formControlName='encuestaValidar'></textarea>
+            </mat-form-field>
+            <mat-error *ngIf="this.formulario.controls.encuestaValidar.hasError('required')">
+                La encuesta es <strong>requerida</strong>
+            </mat-error>
+            <mat-error *ngIf="this.formulario.controls.encuestaValidar.hasError('maxlength') && !this.formulario.controls.encuestaValidar.hasError('required')">
+                La encuesta debe tener como maximo <strong>66 caracteres</strong>
+            </mat-error>
+          </p>
+
+        </form>
+        </mat-card-content>
+        <mat-card-actions>
+
+          <div class="acomodarBotones">
+            <button mat-raised-button color="primary"[disabled]='!this.formulario.valid'(click)='realizarEncuesta($event)' ><span class="material-icons">
+              send
+              </span>Enviar
+
+            </button>
+            <button mat-raised-button color="warn" (click)="volverAtrasFuncion($event)">
+              <span class="material-icons">
+                undo
+                </span>
+                Volver atras
+            </button>
+          </div>
+
+        </mat-card-actions>
+      </mat-card>
+</div>

@@ -1,0 +1,67 @@
+<!--
+
+-->
+
+<mat-toolbar style="  box-shadow: 0 10px 20px rgba(0, 0, 0, .19),
+0 6px 6px rgba(0, 0, 0, .23); ">
+  <span routerLink="/">Buena Sonrisa</span>
+  
+  <div class="separarDerecha">
+    
+    <div class="separarDerecha" *ngFor="let usuario of listaUsuarios">
+      <div class="separarDerecha" *ngIf="usuario.correo == this.authS.devolverCorreo()"> 
+
+        <button *ngIf="usuario.perfil == 'administrador'" mat-button [matMenuTriggerFor]="otherMenu">Registrar <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">arrow_drop_down</mat-icon></button>
+        <mat-menu #otherMenu="matMenu">
+          <button mat-menu-item routerLink="/alta-recepcionista">Recepcionista</button>
+          <button mat-menu-item routerLink="/alta-cliente">Cliente</button>
+          <button mat-menu-item routerLink="/alta-especialista">Especialista</button>
+        </mat-menu>
+
+
+        <button *ngIf="usuario.perfil == 'administrador'" mat-button [matMenuTriggerFor]="menu">Estadisticas <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">arrow_drop_down</mat-icon></button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/estadistica-empleados">Empleados</button>
+          <button mat-menu-item routerLink="/estadistica-turnos">Turnos</button>
+          <button mat-menu-item routerLink="/estadistica-especialidades">Especialidades</button>
+        </mat-menu>
+        
+         <a mat-button *ngIf="usuario.perfil == 'paciente'" routerLink="/alta-cliente">Registrarse</a>
+         <a mat-button *ngIf="usuario.perfil == 'paciente'" routerLink="/mis-turnos">Mis turnos</a>
+         <a mat-button *ngIf="usuario.perfil == 'paciente'" routerLink="/alta-turno">Sacar turno</a>
+         <a mat-button *ngIf="usuario.perfil == 'recepcionista'" routerLink="/alta-turno-recepcionista" >Sacar turno</a>
+         <a mat-button *ngIf="usuario.perfil == 'especialista'" routerLink="/listado-turnos" >Ver turnos</a>
+         <a mat-button *ngIf="usuario.perfil == 'recepcionista'" routerLink="/listado-turnos-recepcionista" >Ver turnos</a>
+         <a mat-button *ngIf="usuario.perfil == 'recepcionista'" routerLink="/alta-cliente" >Registrar paciente</a>
+    
+        </div>
+    </div>
+
+</div>
+  <div class="separarIzquierda" >
+    
+    <a mat-button routerLink="/login" *ngIf="!this.authS.devolverCorreo()">
+      <span class="material-icons">
+        login
+        </span>Iniciar sesion</a>
+
+    <a mat-button *ngIf="!this.authS.devolverCorreo()"routerLink="/alta-cliente">Registrarse</a>
+  </div>
+
+
+  <div class="separarDerecha">
+    
+      <div class="separarDerecha" *ngFor="let usuario of listaUsuarios">
+        <div class="separarDerecha" *ngIf="usuario.correo == this.authS.devolverCorreo()">
+          <a mat-button *ngIf="this.authS.devolverCorreo()" >{{usuario.nombre}}</a>
+
+          <a *ngIf="this.authS.devolverCorreo()"><img [src]="usuario.foto" alt="" width="60px" height="60px" style="border-radius: 50%;"></a>
+          <a mat-button *ngIf="this.authS.devolverCorreo()" routerLink="/login" (click)="deslogearse()"><strong>Cerrar sesion</strong></a>
+
+        </div>
+      </div>
+
+  </div>
+ 
+</mat-toolbar>
+

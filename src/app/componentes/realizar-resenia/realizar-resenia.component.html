@@ -1,0 +1,29 @@
+<div class="container">
+    <div id="login" class="signin-card">
+        <br>
+        <h1 class="display1">Realizar reseña</h1>
+  
+        <form action="" method="" class="" role="form" [formGroup]="formulario">
+            
+            <p>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Reseña del paciente</mat-label>
+                  <textarea class="example-full-width" matInput [(ngModel)]="resenia" formControlName='reseniaValidar'></textarea>
+                </mat-form-field>
+                <mat-error *ngIf="this.formulario.controls.reseniaValidar.hasError('required')">
+                    La reseña es <strong>requerida</strong>
+                </mat-error>
+                <mat-error *ngIf="this.formulario.controls.reseniaValidar.hasError('minlength') && !this.formulario.controls.reseniaValidar.hasError('required')">
+                    La reseña debe tener como minimo <strong>66 caracteres</strong>
+                </mat-error>
+                           
+              </p>
+                
+              <div style="margin-top: 1rem;" > 
+                <button  mat-raised-button color="primary" style="width: 100%; max-width: 100%;" [disabled]='!this.formulario.valid' alt="sign in" (click)="enviarResenia($event)">Enviar</button>  
+            </div>
+             
+        </form>  
+        
+    </div>
+  </div>

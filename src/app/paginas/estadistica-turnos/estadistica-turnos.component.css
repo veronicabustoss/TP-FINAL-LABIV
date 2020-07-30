@@ -1,0 +1,36 @@
+.acomodarCards{
+
+    top : 5%;
+    margin-top: 2%;
+    margin-left: 45%;
+}
+
+.example-card {
+    max-width: 400px;
+    background-color: #eceff1; 
+    top : -10px;
+    margin-top: 1%;
+
+    margin-left: 35%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .19),
+  }
+
+  table {
+    width: 96%;
+    margin-left : 2%;
+  }
+
+
+  .display1 {
+    font-size: 28px;
+    font-weight: 100;
+    line-height: 1.2;
+    color: #757575;
+    text-transform: inherit;
+    letter-spacing: inherit;
+  }
+  .centrar{
+    max-width: 39%;
+    margin: 1% auto;
+    padding: 20px;   
+}

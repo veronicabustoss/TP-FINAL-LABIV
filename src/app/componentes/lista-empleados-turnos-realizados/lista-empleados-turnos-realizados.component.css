@@ -1,0 +1,21 @@
+table {
+    width: 96%;
+    margin-left : 2%;
+  }
+
+  .acomodarCards{
+
+    top : 5%;
+    margin-top: 2%;
+    margin-left: 45%;
+}
+
+.example-card {
+    max-width: 400px;
+    background-color: #eceff1; 
+    top : -10px;
+    margin-top: 1%;
+
+    margin-left: 35%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .19),
+  }

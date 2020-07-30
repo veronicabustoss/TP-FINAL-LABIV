@@ -1,0 +1,93 @@
+<div *ngIf="!banderaMostrar">
+  <div *ngIf="!banderaResenia">
+
+      <div *ngIf='this.listaMisTurnos.length == 0' style="margin-top: 10%; margin-left : 42%">
+        <span>
+            <h1>
+                No hay turnos disponibles
+            </h1>
+        </span>
+    </div>
+    
+  <div *ngIf='this.listaMisTurnos.length != 0'>
+      <table mat-table [dataSource]="this.listaMisTurnos" class="mat-elevation-z8" >
+
+          <!-- Nombre Columna -->
+          <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+        
+          <!-- Codigo Columna -->
+          <ng-container matColumnDef="Codigo">
+            <th mat-header-cell *matHeaderCellDef> Codigo </th>
+            <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+          </ng-container>
+        
+          <!-- Fecha Columna -->
+          <ng-container matColumnDef="Fecha">
+            <th mat-header-cell *matHeaderCellDef> Fecha </th>
+            <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+          </ng-container>
+        
+          <!-- Horario Columna -->
+          <ng-container matColumnDef="Horario">
+              <th mat-header-cell *matHeaderCellDef> Horario </th>
+              <td mat-cell *matCellDef="let element"> {{element.horario}} </td>
+            </ng-container>
+      
+          <!-- Especialista Columna -->
+          <ng-container matColumnDef="Especialista">
+            <th mat-header-cell *matHeaderCellDef> Especialista </th>
+            <td mat-cell *matCellDef="let element"> {{element.especialista.apellido}} </td>
+          </ng-container>
+
+          <!-- Estado Columna -->
+          <ng-container matColumnDef="Estado">
+              <th mat-header-cell *matHeaderCellDef>Estado </th>
+              <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+          </ng-container>
+  
+          <!-- Accion Columna -->          
+          <ng-container matColumnDef="Accion">
+              <th mat-header-cell *matHeaderCellDef>Accion </th>
+              <td mat-cell *matCellDef="let element" > 
+
+                <div *ngIf="element.estado == 'finalizado'" class="arreglarDivsBotones" >
+                  
+                  <div *ngIf="element.encuestaPaciente.encuestaPersonal.length == 0 " style="margin-top:4px">
+                    <button  mat-raised-button color="warn" style="margin: 6px;" (click)='mostrarFormularioEncuesta(element)'>Encuesta</button>
+                  </div>
+    
+                  <div *ngIf="element.resenia.length != 0 " style="margin-top:6px">
+                    <button  mat-raised-button color="primary" style="margin: 4px;" (click)='mostrarResenia(element)'>Ver reseña</button>
+                  </div>
+                </div>
+  
+              </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  </div >
+
+  </div>
+    
+</div>
+
+<div *ngIf='banderaMostrar'>
+    <app-hacer-encuesta
+    [turno]='turnoSeleccionado'
+    (volverAtras)='cambiarBandera($event)'
+    >
+    </app-hacer-encuesta>
+</div>
+
+<div *ngIf='banderaResenia'>
+  <app-ver-resenia
+  [turno]='turnoSeleccionado'
+  (volverAtras)='cambiarBanderaResenia($event)'>
+
+  </app-ver-resenia>
+</div>
